@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="XMLPropertiesConfig">
+
+	<Properties>
+        <property></property>
+        <!-- Change the service name here-->
+		<property name="serviceName">SingleChat</property> 
+        <Property name="fileLoggerPath">${env:SWIGGY_LOG_PATH}/${serviceName}/${serviceName}.log</Property>
+        <Property name="serviceLoggerPath">${env:SWIGGY_LOG_PATH}/${serviceName}/ServiceLog_${serviceName}.log</Property>
+	</Properties>
+
+	<Appenders>
+		<Console name="STDOUT">
+			<PatternLayout>
+				<pattern>[%d{dd MMM yyyy HH:mm:ss}] [ID:%X{sessionId}] %5p [%t] (%F:%L) - %m%n</pattern>
+			</PatternLayout>
+		</Console>
+		<RollingFile name="fileLogger" fileName="${fileLoggerPath}"
+			filePattern="${fileLoggerPath}.%d{yyyy-MM-dd}">
+			<PatternLayout>
+				<pattern>[%d{dd MMM yyyy HH:mm:ss}] [ID:%X{sessionId}] %5p [%t] (%F:%L) - %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+				<!--  -->SizeBasedTriggeringPolicy size="1024 MB"/>
+			</Policies>
+			<!--  -->DefaultRolloverStrategy max="20"/>
+		</RollingFile>
+		<RollingFile name="serviceLogger" fileName="${serviceLoggerPath}"
+			filePattern="${serviceLoggerPath}.%d{yyyy-MM-dd}">
+			<PatternLayout>
+				<pattern>[%d{dd MMM yyyy HH:mm:ss}] [ID:%X{sessionId}] %5p [%t] (%F:%L) - %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+				<!--  -->SizeBasedTriggeringPolicy size="1024 MB"/>
+			</Policies>
+		</RollingFile>
+	</Appenders>
+
+	<Loggers>
+		<Logger name="serviceLogger" level="debug" additivity="false">
+			<AppenderRef ref="serviceLogger" />
+		</Logger>
+		<Root level="trace" additivity="true">
+			<AppenderRef ref="STDOUT" />
+			<AppenderRef ref="fileLogger" />
+		</Root>
+	</Loggers>
+
+</Configuration>
