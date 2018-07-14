@@ -12,6 +12,9 @@ import com.amazonaws.regions.Regions;
  *
  */
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
+
+import org.json.JSONObject;
+
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.dynamodbv2.document.DeleteItemOutcome;
@@ -27,6 +30,10 @@ public class GetItemFromDynamoDb {
 			.withRegion(Regions.US_EAST_2)
 			.build(); 
 	DynamoDB dynamoDB = new DynamoDB(client);
-	Table table = dynamoDB.getTable("ProductCatalog");
-	Item item = table.getItem("Id", 101);
+	Table table = dynamoDB.getTable("Sessions");
+	public String getItemByHash(String itemKey)
+	{
+	Item item = table.getItem("sessionId",itemKey);
+	return item.toJSON();
+	}
 }

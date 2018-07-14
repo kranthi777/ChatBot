@@ -23,6 +23,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import code.swiggy.RestService.HelperLibs.GetItemFromDynamoDb;
 
 @Path("SessionCreation")
 public class ChatFront {
@@ -32,9 +33,11 @@ public class ChatFront {
 	@Path("web/create")
 	public Response createSessionForWeb(@Context HttpHeaders httpHeaders,String request) throws Exception {
 		JSONObject session = new JSONObject();
+		GetItemFromDynamoDb item= new GetItemFromDynamoDb();
 		session.put("ashish", "verma");
 		session.put("kranthi", "kumar");
 		session.put("niharika", "singh");
+		session.put("FromDynamoDB",item.getItemByHash("SWIGGYHACK") );
 		return Response.status(200).entity(session.toString()).build();
 		
 	}
