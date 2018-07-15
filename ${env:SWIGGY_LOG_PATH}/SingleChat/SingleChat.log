@@ -1,8 +1,18 @@
-[14 Jul 2018 18:24:15] [ID:]  INFO [main] (App.java:73) - Jersey app started with WADL available at http://0.0.0.0:5021/application.wadl
+[15 Jul 2018 08:36:43] [ID:]  INFO [main] (App.java:73) - Jersey app started with WADL available at http://0.0.0.0:5021/application.wadl
 Hit enter to stop it...
-[14 Jul 2018 18:25:33] [ID:]  INFO [main] (App.java:73) - Jersey app started with WADL available at http://0.0.0.0:5021/application.wadl
+[15 Jul 2018 08:40:56] [ID:]  INFO [main] (App.java:73) - Jersey app started with WADL available at http://0.0.0.0:5021/application.wadl
 Hit enter to stop it...
-[14 Jul 2018 18:34:08] [ID:]  INFO [main] (App.java:73) - Jersey app started with WADL available at http://0.0.0.0:5021/application.wadl
+[15 Jul 2018 08:46:14] [ID:]  INFO [main] (App.java:73) - Jersey app started with WADL available at http://0.0.0.0:5021/application.wadl
 Hit enter to stop it...
-[14 Jul 2018 19:09:43] [ID:]  INFO [main] (App.java:73) - Jersey app started with WADL available at http://0.0.0.0:5021/application.wadl
+[15 Jul 2018 08:47:19] [ID:]  INFO [main] (App.java:73) - Jersey app started with WADL available at http://0.0.0.0:5021/application.wadl
 Hit enter to stop it...
+[15 Jul 2018 08:51:11] [ID:]  INFO [grizzly-http-server-14] (ChatFront.java:41) - input received is{"ashish":"verma"}
+[15 Jul 2018 08:53:23] [ID:]  INFO [main] (App.java:73) - Jersey app started with WADL available at http://0.0.0.0:5021/application.wadl
+Hit enter to stop it...
+[15 Jul 2018 08:53:33] [ID:]  INFO [grizzly-http-server-8] (ChatFront.java:41) - input received is{"ashish":"verma"}
+[15 Jul 2018 08:55:06] [ID:]  INFO [grizzly-http-server-9] (ChatFront.java:41) - input received is{"ashish":"verma"}
+[15 Jul 2018 08:55:37] [ID:]  INFO [grizzly-http-server-16] (ChatFront.java:41) - input received is{"userId":"verma"}
+[15 Jul 2018 09:06:05] [ID:]  INFO [main] (App.java:73) - Jersey app started with WADL available at http://0.0.0.0:5021/application.wadl
+Hit enter to stop it...
+[15 Jul 2018 09:06:12] [ID:]  INFO [grizzly-http-server-8] (ChatFront.java:41) - input received is{"userId":"verma"}
+[15 Jul 2018 09:06:15] [ID:]  INFO [grizzly-http-server-8] (OrderManager.java:54) - doing initial processing

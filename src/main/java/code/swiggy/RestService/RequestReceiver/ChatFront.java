@@ -36,6 +36,7 @@ public class ChatFront {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("create")
 	public Response createSessionForWeb(@Context HttpHeaders httpHeaders,String request) throws Exception {
+		
 		JSONObject input = new JSONObject(request);
 		logger.info("input received is"+input);
 		JSONObject output = new JSONObject();
@@ -44,8 +45,13 @@ public class ChatFront {
 		output.put("userId", userId);
 		output.put("sessionId", sessionId);
 		output.put("orderStatus","initial");
+	    try {
 		SetItemToDynamoDB setItem = new SetItemToDynamoDB();
-		setItem.setItemByHash(sessionId, output, "Sessions");
+	    setItem.setItemByHash(sessionId, output, "Sessions");
+	    }catch(Exception e)
+	    {
+	    	logger.info("unable to set item in dynamodb");
+	    }
 		OrderManager OM = new OrderManager();
 		String processedResponse = OM.provideResponse(sessionId,null);
 		return Response.status(200).entity(processedResponse).build();
