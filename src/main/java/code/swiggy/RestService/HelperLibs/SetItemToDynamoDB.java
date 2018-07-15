@@ -51,6 +51,7 @@ public class SetItemToDynamoDB {
 	      if(value.equalsIgnoreCase(itemKey))
 	      {
 	      item.withPrimaryKey(key,value);
+	      logger.info("placing this as key-value"+key+":"+value);
 	      }
 	      else
 	      {
@@ -59,7 +60,7 @@ public class SetItemToDynamoDB {
 	    }
 	    catch(Exception e)
 	      {
-	    	
+	    	logger.info("error  in getting key value");
 	      }
      }
 	  table.putItem(item);

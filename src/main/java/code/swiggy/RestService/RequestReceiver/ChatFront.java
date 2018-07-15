@@ -45,6 +45,7 @@ public class ChatFront {
 		output.put("userId", userId);
 		output.put("sessionId", sessionId);
 		output.put("orderStatus","initial");
+		logger.info("output is"+output);
 	    try {
 		SetItemToDynamoDB setItem = new SetItemToDynamoDB();
 	    setItem.setItemByHash(sessionId, output, "Sessions");
