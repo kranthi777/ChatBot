@@ -30,12 +30,14 @@ import code.swiggy.RestService.HelperLibs.SetItemToDynamoDB;
 
 @Path("session")
 public class ChatFront {
+	private static Logger logger = LogManager.getLogger("chatFront");
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("create")
 	public Response createSessionForWeb(@Context HttpHeaders httpHeaders,String request) throws Exception {
 		JSONObject input = new JSONObject(request);
+		logger.info("input received is"+input);
 		JSONObject output = new JSONObject();
 		String userId = input.getString("userId");
 		String sessionId=getSessionId();

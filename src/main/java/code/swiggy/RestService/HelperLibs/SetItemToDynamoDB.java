@@ -13,6 +13,8 @@ import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 
 import java.util.Iterator;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -26,6 +28,7 @@ import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
 import com.amazonaws.services.dynamodbv2.model.ReturnValue;
 
 public class SetItemToDynamoDB {
+	private static Logger logger = LogManager.getLogger("setItemToDynamoDB");
 	AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
 			.withRegion(Regions.US_EAST_2)
 			.build(); 
@@ -33,6 +36,7 @@ public class SetItemToDynamoDB {
 	
 	public void setItemByHash(String itemKey, JSONObject thingsToPut, String tableName)
 	{
+	logger.info("putting data in to db");
 	Table table = dynamoDB.getTable(tableName);
 	Item item = new Item();
 	Iterator<?> keys = thingsToPut.keys();

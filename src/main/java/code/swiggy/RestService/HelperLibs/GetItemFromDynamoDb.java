@@ -13,6 +13,8 @@ import com.amazonaws.regions.Regions;
  */
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
@@ -26,6 +28,7 @@ import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
 import com.amazonaws.services.dynamodbv2.model.ReturnValue;
 
 public class GetItemFromDynamoDb {
+	private static Logger logger = LogManager.getLogger("GetItemFromDynamoDB");
 	AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
 			.withRegion(Regions.US_EAST_2)
 			.build(); 
@@ -35,6 +38,7 @@ public class GetItemFromDynamoDb {
 	{
 	Table table = dynamoDB.getTable(tableName);
 	Item item = table.getItem("sessionId",itemKey);
+	logger.info("putting data in dynamodb");
 	return item.toJSON();
 	}
 }

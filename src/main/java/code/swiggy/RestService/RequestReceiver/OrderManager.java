@@ -3,6 +3,8 @@
  */
 package code.swiggy.RestService.RequestReceiver;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import code.swiggy.RestService.HelperLibs.GetItemFromDynamoDb;
@@ -12,7 +14,7 @@ import code.swiggy.RestService.HelperLibs.GetItemFromDynamoDb;
  *
  */
 public class OrderManager {
-	
+	private static Logger logger = LogManager.getLogger("OrderManager");
 	public  String provideResponse(String sessionId,String msg)
 	{
 		String response;
@@ -49,6 +51,7 @@ public class OrderManager {
 	}
 	public String doIntialOrderProcessing(String sessionId,String msg)
 	{
+	logger.info("doing initial processing");
 		return "Hi Human!";
 	}
     public String doOrderConstructionProcessing(String sessionId,String msg)
