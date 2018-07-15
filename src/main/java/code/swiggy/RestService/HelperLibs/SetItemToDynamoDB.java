@@ -37,6 +37,7 @@ public class SetItemToDynamoDB {
 	public void setItemByHash(String itemKey, JSONObject thingsToPut, String tableName)
 	{
 	logger.info("putting data in to db");
+	try {
 	Table table = dynamoDB.getTable(tableName);
 	Item item = new Item();
 	Iterator<?> keys = thingsToPut.keys();
@@ -63,5 +64,10 @@ public class SetItemToDynamoDB {
      }
 	  table.putItem(item);
 	}
+	catch(Exception e)
+	{
+		logger.info("error in inserting data to dynamodb",e);
+	}
+}
 }
 
