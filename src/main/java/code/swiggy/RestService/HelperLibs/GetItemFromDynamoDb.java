@@ -30,9 +30,10 @@ public class GetItemFromDynamoDb {
 			.withRegion(Regions.US_EAST_2)
 			.build(); 
 	DynamoDB dynamoDB = new DynamoDB(client);
-	Table table = dynamoDB.getTable("Sessions");
-	public String getItemByHash(String itemKey)
+	
+	public String getItemByHash(String itemKey, String tableName)
 	{
+	Table table = dynamoDB.getTable(tableName);
 	Item item = table.getItem("sessionId",itemKey);
 	return item.toJSON();
 	}
